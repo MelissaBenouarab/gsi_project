@@ -1,7 +1,6 @@
 from academicelement import AcademicElement
 
 class Unit(AcademicElement):
-    """Représente une Unité d’Enseignement (UE) contenant plusieurs modules."""
 
     def __init__(self, name, title, modules=None):
         super().__init__(name, title)
@@ -10,9 +9,6 @@ class Unit(AcademicElement):
     def add_module(self, module):
         self._modules.append(module)
 
-    # -------------------------------
-    # Redéfinition (Override)
-    # -------------------------------
     def calculate_average(self):
         """Agrégation — combinaison des moyennes des modules."""
         if not self._modules:
