@@ -1,8 +1,8 @@
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from unit import Unit
-from module import Module
+from gsi_project.unit import Unit
+from gsi_project.module import Module
 
 def test_unit_average():
     m1 = Module("AABD", "Base de données", coef=2, credit=4)
