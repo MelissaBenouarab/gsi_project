@@ -1,4 +1,6 @@
-from semester import Semester
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from ..semester import Semester
 
 from module import Module
 from unit import Unit
