@@ -9,17 +9,13 @@ def test_semester_average_and_credits():
     m1 = Module("MTI", "Implémentation", coef=3, credit=5)
     m2 = Module("AABD", "BD", coef=2, credit=4)
     
-    # Créer l’unité avec les modules
     u1 = Unit("UEM11", "Méthodo", [m1, m2])
-    u1.coef = 1  # 👈 Définir le coefficient APRÈS la création de l’unité
+    u1.coef = 1 
     
-    # Créer le semestre avec l’unité
     s1 = Semester("S1", "Semestre 1", [u1])
     
-    # Notes
     m1.set_grade(tp=14, exam=13)
     m2.set_grade(tp=10, exam=9)
     
-    # Vérifications
     assert s1.calculate_average() > 10
-    assert s1.calculate_credits() == 30  # moyenne >= 10 => 30 crédits
+    assert s1.calculate_credits() == 30  

@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 
 class AcademicElement(ABC):
-    """Abstract base class for academic entities (Module, Unit, Semester, etc.)."""
 
     def __init__(self, name, title):
         self.name = name
@@ -10,17 +9,14 @@ class AcademicElement(ABC):
         self.coef = 0
         self.credit = 0
 
-        # Volume horaire
         self.hours_lecture = 0
         self.hours_td = 0
         self.hours_tp = 0
 
     @abstractmethod
     def calculate_average(self):
-        """Abstract method to be implemented by subclasses."""
         pass
 
     @abstractmethod
     def calculate_credits(self):
-        """Abstract method to be implemented by subclasses."""
         pass

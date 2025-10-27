@@ -1,7 +1,6 @@
 from academicelement import AcademicElement
 
 class Module(AcademicElement):
-    """Représente un module d’enseignement."""
 
     def __init__(
         self,
@@ -36,7 +35,6 @@ class Module(AcademicElement):
             self._grades["exam"] = exam
 
     def calculate_average(self):
-        """Pondération fixe : 40% TP et 60% Examen"""
         tp = self._grades.get("tp", 0)
         exam = self._grades.get("exam", 0)
         return (tp * 0.4) + (exam * 0.6)

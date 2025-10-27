@@ -1,7 +1,6 @@
 from academicelement import AcademicElement
 
 class Unit(AcademicElement):
-    """Représente une Unité d’Enseignement (UE) contenant plusieurs modules."""
 
     def __init__(self, name, title, modules=None):
         super().__init__(name, title)
@@ -10,11 +9,7 @@ class Unit(AcademicElement):
     def add_module(self, module):
         self._modules.append(module)
 
-    # -------------------------------
-    # Redéfinition (Override)
-    # -------------------------------
     def calculate_average(self):
-        """Agrégation — combinaison des moyennes des modules."""
         if not self._modules:
             return 0
         total = sum(m.calculate_average() * m.coef for m in self._modules)
@@ -22,23 +17,17 @@ class Unit(AcademicElement):
         return total / coef_sum if coef_sum != 0 else 0
 
     def calculate_credits(self):
-        """Retourne le total de crédits validés pour l’unité."""
         if not self._modules:
             return 0
 
         avg = self.calculate_average()
-
-        # ✅ Si la moyenne de l’unité >= 10 : tous les crédits sont acquis
         if avg >= 10:
             total_credits = sum(m.credit for m in self._modules)
         else:
-            # ❌ Sinon : seuls les modules validés comptent
             total_credits = sum(m.calculate_credits() for m in self._modules)
 
         return total_credits
 
-
-# ✅ Exemple d’utilisation
 if __name__ == "__main__":
     from module import Module
 
